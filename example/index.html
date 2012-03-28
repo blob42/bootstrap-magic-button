@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Magic buttons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../css/bootstrap-magic-button.css" rel="stylesheet">
+
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Magic Buttons</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+			<div class="hero-unit" style="text-align: center; margin-top: 20px">
+				<h2>What is it? </h2>
+				<br />
+				<p> It's a plugin that let's you make buttons that stick on the borders of any div
+				</p>
+			</div>
+			<div class="row">
+				<div class="span6">
+					<h2>Example</h2>
+					<hr />
+					<br />
+					<div class="well span3">
+						<p>This is the most basic magic button, the default behavior is to stick on the right side
+						of div which is containing magic buttons
+						</p>
+						<button class="magicBtn" data-image="../img/magicBtn-msg.png"/>
+					</div>
+					
+				</div>
+				<div class="span6">
+						<h2>Code:</h2>
+				</div>
+			</div>
+	</div>  <!-- /container -->
+      
+    
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script>
+	google.load("jqueryui", "1.8.17");
+	</script>
+	<script src="../js/jquery.hoverIntent.js"></script>
+	<script src="../js/bootstrap-magic-button.js"></script>
+	<script>
+	$(function () {
+	$('.magicBtn').magicBtn('show');
+	
+	});
+	</script>
+	
+
+  </body>
+</html>
