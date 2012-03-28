@@ -1,18 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 <link href="bootstrap-magic-button.css" rel="stylesheet">
 </head>
 <body>
- <div id="display2"  style="width: 200px; height:200px; border: 1px solid blue;"></div> 
 
+<!-- <div id="display2"  style="width: 200px; height:200px; border: 1px solid blue;">
+<button class="magicBtn" data-image="magicBtn-pin-off.png" data-toggle-image="magicBtn-pin-on.png" data-toggle="magicBtn" />
+<button class="magicBtn" data-image="magicBtn-pin-off.png" data-toggle-image="magicBtn-pin-on.png" data-toggle="magicBtn" />
+</div> 
+ -->
 <div id="display1"  style="width: 200px; height:200px; border: 1px solid red;">
 <p>test adsgdsgds</p>
 <br />
 
-<button class="magicBtn" data-image="magicBtn-pin-off.png" data-toggle="magicBtn" data-toggle-image="magicBtn-pin-on.png"/>
-<button class="magicBtn" data-image="magicBtn-pin-off.png" data-toggle="magicBtn" data-toggle-image="magicBtn-pin-on.png"/>
-
-
+<button class="magicBtn" data-image="magicBtn-pin-off.png" data-toggle-image="magicBtn-pin-on.png" data-toggle="magicBtn" />
+<button class="magicBtn" data-image="magicBtn-pin-off.png" data-toggle-image="magicBtn-pin-on.png" data-toggle="magicBtn" />
+<button class="magicBtn" data-image="magicBtn-pin-off.png" data-toggle-image="magicBtn-pin-on.png" data-toggle="magicBtn" />
 
 
 
@@ -20,13 +25,17 @@
 
 <!-- <button class="magicBtn" data-toggle="magicBtn" data-image="magicBtn-pin-off.png" data-toggle-image="magicBtn-pin-on.png"/>  -->
 
-
-
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+google.load("jqueryui", "1.8.17");
+</script>
+<script src="jquery.hoverIntent.js"></script>
 <script src="bootstrap-magic-button.js"></script>
 <script>
 $(function () {
-$('.magicBtn').magicBtn();
+$('.magicBtn').magicBtn({betweenSpace: 4, hover: true});
+$('.magicBtn').magicBtn('show')
 });
 </script>
 
