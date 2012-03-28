@@ -151,7 +151,7 @@
 		this.$element.css({
 			top: this.$top,
 			left: this.$left,
-			'background-image': this.$imgUrl,
+			'background-image': this.$imgUrl
 		}).show()
 	}
 	
