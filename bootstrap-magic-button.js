@@ -58,8 +58,10 @@
 	else
 		this.$toggleImgUrl = this.$imgUrl
 		
-	
 	this.$isToggled = false
+	
+	if (this.options.hover)
+		this.addHover()
 	}
 	
   MagicBtn.prototype = {
