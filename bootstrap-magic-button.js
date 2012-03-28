@@ -91,24 +91,51 @@
 		var left = this.$parentPosition.left + this.$parentWidth
 		switch (this.options.alignement) {
 			case 'top':
-				this.$top = (this.$currentBtnNb * this.$height) - this.$height + this.$parentPosition.top + (space * (this.$currentBtnNb - 1))
+				this.$top = (
+								(this.$currentBtnNb * this.$height) - 
+								this.$height + 
+								this.$parentPosition.top + 
+								(space * (this.$currentBtnNb - 1))
+							)
 				break;
 			case 'center':
 				{	
 					if (this.$currentBtnNb === 1)
 					{
-						this.$top = (this.$parentHeight / 2) - (this.$height / 2) + this.$parentPosition.top 
-						this.$parentDiv.data('top-space', this.$parentHeight / 2 - (this.$height /2))
-						this.$parentDiv.data('bottom-space', this.$parentHeight / 2 - (this.$height /2))
+						this.$top = (
+										(this.$parentHeight / 2) - 
+										(this.$height / 2) + 
+										this.$parentPosition.top
+									)
+						this.$parentDiv.data('top-space', 
+											(this.$parentHeight / 2 - (this.$height /2))
+										)
+						this.$parentDiv.data('bottom-space', 
+											(this.$parentHeight / 2 - (this.$height /2))
+										)
 					}
 					else if (this.$currentBtnNb % 2 === 0) {
-						this.$top = this.$parentDiv.data('top-space') - (this.$height) + this.$parentPosition.top 
-						this.$parentDiv.data('top-space', this.$parentDiv.data('top-space') - this.$height )
+						this.$top = (
+										this.$parentDiv.data('top-space') - 
+										this.$height + 
+										this.$parentPosition.top 
+									)
+						this.$parentDiv.data('top-space', 
+											this.$parentDiv.data('top-space') - this.$height 
+										)
 					}
 					
 					else {
-						this.$top = this.$parentHeight - this.$parentDiv.data('bottom-space') + this.$parentPosition.top 
-						this.$parentDiv.data('bottom-space', this.$parentDiv.data('bottom-space') - this.$height )
+						this.$top = (
+										this.$parentHeight - 
+										this.$parentDiv.data('bottom-space') + 
+										this.$parentPosition.top 
+									)
+									
+						this.$parentDiv.data('bottom-space', 
+											this.$parentDiv.data('bottom-space') - 
+											this.$height 
+										)
 					}
 					break;
 						
