@@ -161,16 +161,37 @@
 
     , toggle: function () {
 		var $el = this.$element
-		$el.toggleClass('magicBtn-active')
 		if (!this.$isToggled) {
 			$el.css('background-image', this.$toggleImgUrl)
 			this.$isToggled = true
+			$el.addClass('magicBtn-active')
 		}
 		else {
 			$el.css('background-image', this.$imgUrl)
 			this.$isToggled = false
+			$el.removeClass('magicBtn-active')
 		}	
       }
+	 
+	, addHover: function () {
+		var $el = this.$element
+		var obj = this
+		var config = {
+			over: function () {
+				if (!obj.$isToggled)
+					$(this).toggleClass('magicBtn-active')
+			},
+			timeout: 1,
+			out: function () {
+				if ((!obj.$isToggled) && 
+					(!$el.is(':hover')) && 
+					($el.hasClass('magicBtn-active')))
+					$(this).toggleClass('magicBtn-active', 100)
+			}
+		}
+		$el.hoverIntent( config )
+		
+	}
 
   }
 
@@ -197,7 +218,8 @@
     loadingText: 'loading...',
 	direction: 'right',
 	betweenSpace: 2,
-	alignement: 'top'
+	alignement: 'center',
+	hover: false
   }
 
   $.fn.magicBtn.Constructor = MagicBtn
