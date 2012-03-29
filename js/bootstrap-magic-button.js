@@ -87,7 +87,7 @@ function ($) {
         calculatePosition: function (direction) {
             var space = (this.$currentBtnNb === 1) ? 0 : this.options.betweenSpace
             var left = this.$parentPosition.left + this.$parentWidth
-            switch (this.options.alignement) {
+            switch (this.options.alignment) {
             case 'top':
                 this.$top = (
                 (this.$currentBtnNb * this.$height) - this.$height + this.$parentPosition.top + (space * (this.$currentBtnNb - 1)))
@@ -187,7 +187,7 @@ function ($) {
     $.fn.magicBtn.defaults = {
         direction: 'right',
         betweenSpace: 2,
-        alignement: 'center',
+        alignment: 'center',
         hover: false
     }
 
