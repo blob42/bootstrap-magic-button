@@ -42,6 +42,8 @@
             <ul class="nav">
               <li class="active"><a href="#setup">Setup</a></li>
               <li><a href="#example">Examples</a></li>
+			  <li><a href="#methods">Methods</a></li>
+
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -112,7 +114,7 @@
 					<br />
 					<div class="well span3">
 						<p>Add a toggle effect using the <code>data-toggle="magicBtn"</code></p>
-						<button class="magicBtn" data-image="img/msg.png" data-toggle="magicBtn"></button>
+						<button class="magicBtn" data-image="img/msg.png" data-toggle="magicBtn"/>
 					</div>
 					
 				</div>
@@ -168,6 +170,83 @@
 			</div>
 			
 			
+			<div class="row">
+				<div class="span5">
+					
+					<h3>How about bootstrap icons ? </h3>
+					
+					<br />
+					<br />
+					<div class="well span3">
+						<p>Just put the icons inside the button</p>
+						<button class="magicBtn icon"><i class="icon-search"></i></button>
+						<button class="magicBtn icon"><i class="icon-user"></i></button>
+					</div>
+					
+				</div>
+				<div class="span7">
+						<br />
+						<br />
+						<pre class="prettyprint linenums">&lt;button class=&quot;magicBtn icon&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/button&gt;<br/>&lt;button class=&quot;magicBtn icon&quot;&gt;&lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt;&lt;/button&gt;<br/></pre>
+						<pre class="prettyprint linenums">$('.icon').magicBtn({hover: true, alignement: 'top'});<br/>$('.icon').magicBtn('show');</pre>
+				</div>
+			</div>
+			
+			<div class="row">
+			<br />
+				<div class="span10">
+					<h3 id="methods">Methods</h3>
+					<h4>$().magicBtn('show')</h4>
+					<p>Shows the buttons found by selector</p>
+					<br />
+					<br />
+					<h4>$().magicBtn('hide')</h4>
+					<p>Hides the buttons found by selector</p>
+					<br />
+					<br />
+					<h4>$().magicBtn('toggle')</h4>
+					<p>Activates toggle state</p>
+					<div class="alert alert-info">
+					<p>You can enable auto toggling of a button by using <code>data-toggle</code> attribute</p>
+					</div>
+					<br />
+					<br />
+					<h3>Options</h3>
+					<br />
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th style="width: 100px;">Name</th>
+								<th style="width: 100px;">type</th>
+								<th style="width: 50px;">default</th>
+								<th>description</th>
+							</tr>
+						</thead>
+							<tr>
+								<td>alignement</td>
+								<td>string</td>
+								<td>center</td>
+								<td>start showing buttons from center, 1 in middle, even on ones top and odd ones on bottom </td>
+							</tr>
+							<tr>
+								<td>betweenSpace</td>
+								<td>integer</td>
+								<td>2</td>
+								<td>space between buttons</td>
+							</tr>
+							<tr>
+								<td>hover</td>
+								<td>boolean</td>
+								<td>false</td>
+								<td>Enables hover effect</td>
+							</tr>
+						<tbody>
+						</tbody>
+					</table>
+					</div>
+			</div>
+			
+			
 			
 			
 		<footer class="footer">
@@ -195,6 +274,9 @@
 	$(function () {
 	$('.hover').magicBtn({hover: true});
 	$('.hover').magicBtn('show');
+	
+	$('.icon').magicBtn({hover: true, alignement: 'top'});
+	$('.icon').magicBtn('show');
 	
 	$('.well .magicBtn').magicBtn('show');
 	
