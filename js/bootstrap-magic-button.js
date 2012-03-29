@@ -57,6 +57,7 @@ function ($) {
             this.$isToggled = false
 
             if (this.options.hover) this.addHover()
+			
         }
 
     MagicBtn.prototype = {
@@ -122,7 +123,7 @@ function ($) {
             this.$element.css({
                 top: this.$top,
                 left: this.$left,
-                'background-image': this.$imgUrl
+                'background-image': (this.$isToggled) ? this.$toggleImgUrl : this.$imgUrl
             }).show()
         }
 
@@ -184,7 +185,6 @@ function ($) {
     }
 
     $.fn.magicBtn.defaults = {
-        loadingText: 'loading...',
         direction: 'right',
         betweenSpace: 2,
         alignement: 'center',

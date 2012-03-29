@@ -1,6 +1,6 @@
 button[class^=magicBtn] {
 	display: none;
-	position: fixed;
+	position: absolute;
 	border-style: none;
 	background: none;
 	background-repeat: no-repeat;
@@ -10,7 +10,7 @@ button[class^=magicBtn] {
 }
 
 button[class*="magicBtn-active"] {
-	position: fixed;
+	position: absolute;
 	border-style: none;
 	background: none;
 	background-repeat: no-repeat;

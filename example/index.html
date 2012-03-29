@@ -10,6 +10,8 @@
     <!-- Le styles -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="../css/bootstrap-magic-button.css" rel="stylesheet">
+	<link href="prettify/prettify.css" type="text/css" rel="stylesheet" />
+	<link href="example.css" type="text/css" rel="stylesheet" />
 
     <style>
       body {
@@ -24,7 +26,8 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body onload="prettyPrint()">
+  <a href="https://github.com/sp4ke/bootstrap-magic-button"><img style="position: absolute; top: 40px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -37,9 +40,8 @@
           <a class="brand" href="#">Magic Buttons</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li class="active"><a href="#setup">Setup</a></li>
+              <li><a href="#example">Examples</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -48,35 +50,139 @@
 
     <div class="container">
 			<div class="hero-unit" style="text-align: center; margin-top: 20px">
-				<h2>What is it? </h2>
+				<h2>Let your buttons fly </h2>
 				<br />
-				<p> It's a plugin that let's you make buttons that stick on the borders of any div
+				<p> It's a plugin that make it possible for any button to float on it's parent div
 				</p>
+				<button class="magicBtn hero"><a href="#example"><i class="icon-chevron-down"></i></a></button>
+				<button class="magicBtn hero"><a href="http://twitter.com/share?url=http://sp4ke.github.com/bootstrap-magic-button/&text=Bootstrap magic buttons @ChakibBenz&count=horiztonal" target="_blank" rel="nofollow"><i class="icon-retweet"></i></a></button>
 			</div>
+			
 			<div class="row">
-				<div class="span6">
-					<h2>Example</h2>
+				<div class="span5">
+				<h2 id="setup">Setup</h2>
+				<ol>
+					<li>Include jQuery and jQueryui</li><br />
+					<li>Include stylesheet and js files <br/><br/><pre class="prettyprint">&lt;link href=&quot;css/bootstrap-magic-button.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>&lt;script src=&quot;jquery.hoverIntent.js&quot;&gt;&lt;/script&gt;<br/>&lt;script src=&quot;bootstrap-magic-button.js&quot;&gt;&lt;/script&gt;</pre></li>
+					<li>Include <code>class="magicBtn"</code> and <code>data-image="path/to/image.png"</code> to your buttons </li><br/>
+					<li>Start using : <pre class="prettyprint">$('.magicBtn').magicBtn('show');</pre></li>
+					<div class="alert alert-info">
+					<p>It is preferable to add your own class to group of magic buttons, use that class to customize groups of magic buttons </p>
+					<pre class="prettyprint">&lt;button class=&quot;magicBtn myClass&quot; ... /&gt; </pre>
+					<pre class="prettyprint">$('.myClass').magicBtn('show');</pre>
+					</div>
+				</ol>
+				<br/>
+				<br/>
+				</div>
+			</div>
+			
+			
+			<div class="row">
+				<div class="span5">
+					<h2 id="example">Examples:</h2>
 					<hr />
+					<h3>Simple button</h3>
 					<br />
 					<div class="well span3">
 						<p>This is the most basic magic button, the default behavior is to stick on the right side
 						of div which is containing magic buttons
 						</p>
-						<button class="magicBtn" data-image="../img/magicBtn-msg.png"/>
+						<button class="magicBtn" data-image="../img/msg.png"/>
 					</div>
 					
 				</div>
-				<div class="span6">
+				<div class="span7">
 						<h2>Code:</h2>
+						<br />
+						<br />
+						<br />
+							<br />
+						<pre class="prettyprint linenums">&lt;div&nbsp;class=&quot;well&nbsp;span3&quot;&gt;<br/>&nbsp;&nbsp;&lt;p&gt;This&nbsp;is&nbsp;the&nbsp;most&nbsp;basic&nbsp;magic&nbsp;button,&nbsp;...&lt;/p&gt;<br/><br/>&nbsp;&nbsp;&lt;button&nbsp;class=&quot;magicBtn&quot;&nbsp;data-image=&quot;../img/msg.png&quot;/&gt;<br/>&lt;/div&gt;</pre>
 				</div>
 			</div>
+			
+			
+			
+			<div class="row">
+				<div class="span5">
+					
+					<h3>Toggle effect</h3>
+					
+					<br />
+					<div class="well span3">
+						<p>Add a toggle effect using the <code>data-toggle="magicBtn"</code></p>
+						<button class="magicBtn" data-image="../img/msg.png" data-toggle="magicBtn"/>
+					</div>
+					
+				</div>
+				<div class="span7">
+						<br />
+						<br />
+						<br />
+						<pre class="prettyprint linenums">&lt;button class=&quot;magicBtn&quot; data-image=&quot;../img/msg.png&quot; data-toggle=&quot;magicBtn&quot;/&gt;<br/></pre>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="span5">
+					
+					<h3>Toggle image</h3>
+					
+					<br />
+					<div class="well span3">
+						<p>Use<code>data-toggle-image</code> to customize toggle image</p>
+						<button class="magicBtn" data-image="../img/pin-off.png" data-toggle="magicBtn" data-toggle-image="../img/pin-on.png"/>
+					</div>
+					
+				</div>
+				<div class="span7">
+						<br />
+						<br />
+						<br />
+						<pre class="prettyprint linenums">&lt;button class=&quot;magicBtn&quot; data-image=&quot;../img/pin-off.png&quot; data-toggle=&quot;magicBtn&quot; data-toggle-image=&quot;../img/pin-on.png&quot;/&gt;</pre>
+				</div>
+			</div>
+			
+			
+			<div class="row">
+				<div class="span5">
+					
+					<h3>Hover effect</h3>
+					
+					<br />
+					<div class="well span3">
+						<p>You can enable a hover effect over your buttons</p>
+						<p>jquery.hoverIntent is used in replacement of jQuery builtin hover</p>
+						<button class="magicBtn hover" data-image="../img/pin-off.png" data-toggle="magicBtn" data-toggle-image="../img/pin-on.png"/>
+					</div>
+					
+				</div>
+				<div class="span7">
+						<br />
+						<br />
+						<br />
+						<pre class="prettyprint linenums">&lt;button class=&quot;magicBtn hover&quot; data-image=&quot;../img/pin-off.png&quot; data-toggle=&quot;magicBtn&quot; data-toggle-image=&quot;../img/pin-on.png&quot;/&gt;</pre>
+						<pre class="prettyprint linenums">$('.hover').magicBtn({hover: true});<br/>$('.hover').magicBtn('show');</pre>
+				</div>
+			</div>
+			
+			
+			
+			
+		<footer class="footer">
+			<p>Built by <a href="https://twitter.com/#!/chakibBenz">@chakibBenz</a></p>
+			<p>Code licensed under the Apache License v2.0</p>
+		</footer> <!-- footer -->
+			
 	</div>  <!-- /container -->
-      
+    
     
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src="prettify/prettify.js"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
@@ -87,8 +193,22 @@
 	<script src="../js/bootstrap-magic-button.js"></script>
 	<script>
 	$(function () {
-	$('.magicBtn').magicBtn('show');
+	$('.hover').magicBtn({hover: true});
+	$('.hover').magicBtn('show');
 	
+	$('.well .magicBtn').magicBtn('show');
+	
+	
+	$('.hero').magicBtn({hover: true, alignement: 'top'});
+	$('.hero-unit').hoverIntent({
+	over: function () {
+		$('.hero').magicBtn('show');
+	},
+	timeout: 200,
+	out: function () {
+		$('.hero').magicBtn('hide');
+	}}
+	)
 	});
 	</script>
 	

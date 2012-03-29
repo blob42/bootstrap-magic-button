@@ -1,0 +1,9 @@
+button[class^="magicBtn hero"] {
+	margin-top: 80px;
+}
+
+footer .footer {
+ style="margin-top: 45; 
+ padding:35px 0 36px; 
+ border-top: 1px solid #E5E5E5;
+}
