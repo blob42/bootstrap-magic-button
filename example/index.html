@@ -9,7 +9,7 @@
 
     <!-- Le styles -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="../css/bootstrap-magic-button.css" rel="stylesheet">
+	<link href="css/bootstrap-magic-button.css" rel="stylesheet">
 	<link href="prettify/prettify.css" type="text/css" rel="stylesheet" />
 	<link href="example.css" type="text/css" rel="stylesheet" />
 
@@ -42,6 +42,8 @@
             <ul class="nav">
               <li class="active"><a href="#setup">Setup</a></li>
               <li><a href="#example">Examples</a></li>
+			  <li><a href="#methods">Methods</a></li>
+
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -88,7 +90,7 @@
 						<p>This is the most basic magic button, the default behavior is to stick on the right side
 						of div which is containing magic buttons
 						</p>
-						<button class="magicBtn" data-image="../img/msg.png"/>
+						<button class="magicBtn" data-image="img/msg.png"></button>
 					</div>
 					
 				</div>
@@ -98,7 +100,7 @@
 						<br />
 						<br />
 							<br />
-						<pre class="prettyprint linenums">&lt;div&nbsp;class=&quot;well&nbsp;span3&quot;&gt;<br/>&nbsp;&nbsp;&lt;p&gt;This&nbsp;is&nbsp;the&nbsp;most&nbsp;basic&nbsp;magic&nbsp;button,&nbsp;...&lt;/p&gt;<br/><br/>&nbsp;&nbsp;&lt;button&nbsp;class=&quot;magicBtn&quot;&nbsp;data-image=&quot;../img/msg.png&quot;/&gt;<br/>&lt;/div&gt;</pre>
+						<pre class="prettyprint linenums">&lt;div&nbsp;class=&quot;well&nbsp;span3&quot;&gt;<br/>&nbsp;&nbsp;&lt;p&gt;This&nbsp;is&nbsp;the&nbsp;most&nbsp;basic&nbsp;magic&nbsp;button,&nbsp;...&lt;/p&gt;<br/><br/>&nbsp;&nbsp;&lt;button&nbsp;class=&quot;magicBtn&quot;&nbsp;data-image=&quot;img/msg.png&quot;/&gt;<br/>&lt;/div&gt;</pre>
 				</div>
 			</div>
 			
@@ -112,7 +114,7 @@
 					<br />
 					<div class="well span3">
 						<p>Add a toggle effect using the <code>data-toggle="magicBtn"</code></p>
-						<button class="magicBtn" data-image="../img/msg.png" data-toggle="magicBtn"/>
+						<button class="magicBtn" data-image="img/msg.png" data-toggle="magicBtn"/>
 					</div>
 					
 				</div>
@@ -120,7 +122,7 @@
 						<br />
 						<br />
 						<br />
-						<pre class="prettyprint linenums">&lt;button class=&quot;magicBtn&quot; data-image=&quot;../img/msg.png&quot; data-toggle=&quot;magicBtn&quot;/&gt;<br/></pre>
+						<pre class="prettyprint linenums">&lt;button class=&quot;magicBtn&quot; data-image=&quot;img/msg.png&quot; data-toggle=&quot;magicBtn&quot;/&gt;<br/></pre>
 				</div>
 			</div>
 			
@@ -132,7 +134,7 @@
 					<br />
 					<div class="well span3">
 						<p>Use<code>data-toggle-image</code> to customize toggle image</p>
-						<button class="magicBtn" data-image="../img/pin-off.png" data-toggle="magicBtn" data-toggle-image="../img/pin-on.png"/>
+						<button class="magicBtn" data-image="img/pin-off.png" data-toggle="magicBtn" data-toggle-image="img/pin-on.png"></button>
 					</div>
 					
 				</div>
@@ -140,7 +142,7 @@
 						<br />
 						<br />
 						<br />
-						<pre class="prettyprint linenums">&lt;button class=&quot;magicBtn&quot; data-image=&quot;../img/pin-off.png&quot; data-toggle=&quot;magicBtn&quot; data-toggle-image=&quot;../img/pin-on.png&quot;/&gt;</pre>
+						<pre class="prettyprint linenums">&lt;button class=&quot;magicBtn&quot; data-image=&quot;img/pin-off.png&quot; data-toggle=&quot;magicBtn&quot; data-toggle-image=&quot;img/pin-on.png&quot;/&gt;</pre>
 				</div>
 			</div>
 			
@@ -154,7 +156,7 @@
 					<div class="well span3">
 						<p>You can enable a hover effect over your buttons</p>
 						<p>jquery.hoverIntent is used in replacement of jQuery builtin hover</p>
-						<button class="magicBtn hover" data-image="../img/pin-off.png" data-toggle="magicBtn" data-toggle-image="../img/pin-on.png"/>
+						<button class="magicBtn hover" data-image="img/pin-off.png" data-toggle="magicBtn" data-toggle-image="img/pin-on.png"></button>
 					</div>
 					
 				</div>
@@ -162,9 +164,86 @@
 						<br />
 						<br />
 						<br />
-						<pre class="prettyprint linenums">&lt;button class=&quot;magicBtn hover&quot; data-image=&quot;../img/pin-off.png&quot; data-toggle=&quot;magicBtn&quot; data-toggle-image=&quot;../img/pin-on.png&quot;/&gt;</pre>
+						<pre class="prettyprint linenums">&lt;button class=&quot;magicBtn hover&quot; data-image=&quot;img/pin-off.png&quot; data-toggle=&quot;magicBtn&quot; data-toggle-image=&quot;img/pin-on.png&quot;/&gt;</pre>
 						<pre class="prettyprint linenums">$('.hover').magicBtn({hover: true});<br/>$('.hover').magicBtn('show');</pre>
 				</div>
+			</div>
+			
+			
+			<div class="row">
+				<div class="span5">
+					
+					<h3>How about bootstrap icons ? </h3>
+					
+					<br />
+					<br />
+					<div class="well span3">
+						<p>Just put the icons inside the button</p>
+						<button class="magicBtn icon"><i class="icon-search"></i></button>
+						<button class="magicBtn icon"><i class="icon-user"></i></button>
+					</div>
+					
+				</div>
+				<div class="span7">
+						<br />
+						<br />
+						<pre class="prettyprint linenums">&lt;button class=&quot;magicBtn icon&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/button&gt;<br/>&lt;button class=&quot;magicBtn icon&quot;&gt;&lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt;&lt;/button&gt;<br/></pre>
+						<pre class="prettyprint linenums">$('.icon').magicBtn({hover: true, alignement: 'top'});<br/>$('.icon').magicBtn('show');</pre>
+				</div>
+			</div>
+			
+			<div class="row">
+			<br />
+				<div class="span10">
+					<h3 id="methods">Methods</h3>
+					<h4>$().magicBtn('show')</h4>
+					<p>Shows the buttons found by selector</p>
+					<br />
+					<br />
+					<h4>$().magicBtn('hide')</h4>
+					<p>Hides the buttons found by selector</p>
+					<br />
+					<br />
+					<h4>$().magicBtn('toggle')</h4>
+					<p>Activates toggle state</p>
+					<div class="alert alert-info">
+					<p>You can enable auto toggling of a button by using <code>data-toggle</code> attribute</p>
+					</div>
+					<br />
+					<br />
+					<h3>Options</h3>
+					<br />
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th style="width: 100px;">Name</th>
+								<th style="width: 100px;">type</th>
+								<th style="width: 50px;">default</th>
+								<th>description</th>
+							</tr>
+						</thead>
+							<tr>
+								<td>alignement</td>
+								<td>string</td>
+								<td>center</td>
+								<td>start showing buttons from center, 1 in middle, even on ones top and odd ones on bottom </td>
+							</tr>
+							<tr>
+								<td>betweenSpace</td>
+								<td>integer</td>
+								<td>2</td>
+								<td>space between buttons</td>
+							</tr>
+							<tr>
+								<td>hover</td>
+								<td>boolean</td>
+								<td>false</td>
+								<td>Enables hover effect</td>
+							</tr>
+						<tbody>
+						</tbody>
+					</table>
+					</div>
 			</div>
 			
 			
@@ -189,12 +268,15 @@
 	<script>
 	google.load("jqueryui", "1.8.17");
 	</script>
-	<script src="../js/jquery.hoverIntent.js"></script>
-	<script src="../js/bootstrap-magic-button.js"></script>
+	<script src="js/jquery.hoverIntent.js"></script>
+	<script src="js/bootstrap-magic-button.js"></script>
 	<script>
 	$(function () {
 	$('.hover').magicBtn({hover: true});
 	$('.hover').magicBtn('show');
+	
+	$('.icon').magicBtn({hover: true, alignement: 'top'});
+	$('.icon').magicBtn('show');
 	
 	$('.well .magicBtn').magicBtn('show');
 	
