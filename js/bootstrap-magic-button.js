@@ -86,6 +86,8 @@ function ($) {
 
         ,
         calculatePosition: function (direction) {
+            this.$parentPosition = this.$parentDiv.position();
+            this.$parentMarginLeft = this.$parentDiv.css('margin-left')
             var space = (this.$currentBtnNb === 1) ? 0 : this.options.betweenSpace
             var left = this.$parentPosition.left + this.$parentWidth
             switch (this.options.alignment) {
@@ -120,6 +122,7 @@ function ($) {
 
         ,
         show: function () {
+            this.calculatePosition()
             var $o = this.options
             this.$element.css({
                 top: this.$top,
