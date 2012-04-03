@@ -36,6 +36,7 @@ function ($) {
             this.$parentPosition = this.$parentDiv.position();
 			this.$parentMarginLeft = this.$parentDiv.css('margin-left')
             this.options = $.extend({}, $.fn.magicBtn.defaults, options)
+            this.$shown = false
 
             // Store number of buttons on parent div
             if (!this.$parentDiv.data('nbMagicBtns')) this.$parentDiv.data('nbMagicBtns', 1)
@@ -125,11 +126,13 @@ function ($) {
                 left: this.$left,
                 'background-image': (this.$isToggled) ? this.$toggleImgUrl : this.$imgUrl
             }).show()
+            this.$shown = true
         }
 
         ,
         hide: function () {
             this.$element.hide()
+            this.$shown = false
         }
 
         ,
