@@ -130,9 +130,24 @@ function ($) {
                 'background-image': (this.$isToggled) ? this.$toggleImgUrl : this.$imgUrl
             }).show()
             this.$shown = true
-        }
+        },
 
-        ,
+        fadeIn: function () {
+            this.calculatePosition()
+            var $o = this.options
+            this.$element.fadeIn('fast').css({
+                top: this.$top,
+                left: this.$left,
+                'background-image': (this.$isToggled) ? this.$toggleImgUrl : this.$imgUrl
+            })
+            this.$shown = true
+        },
+
+        fadeOut: function () {
+            this.$element.fadeOut(10)
+            this.$shown = false
+        },
+       
         hide: function () {
             this.$element.hide()
             this.$shown = false
@@ -184,6 +199,8 @@ function ($) {
             data.calculatePosition('right')
             if (option == 'toggle') data.toggle()
             if (option == 'show') data.show()
+            if (option == 'fadeIn') data.fadeIn()
+            if (option == 'fadeOut') data.fadeOut()
             if (option == 'hide') data.hide()
             else if (option) data.setState(option)
 
