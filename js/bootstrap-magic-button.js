@@ -52,18 +52,19 @@ function ($) {
             // current button image and toggle image if there is
             this.$imgUrl = 'url("' + this.$element.data('image') + '")'
             var toggleimg
-            if (toggleimg = this.$element.data('toggle-image')) this.$toggleImgUrl = 'url("' + toggleimg + '")'
-            else this.$toggleImgUrl = this.$imgUrl
+            if (toggleimg = this.$element.data('toggle-image')) 
+                this.$toggleImgUrl = 'url("' + toggleimg + '")'
+            else
+                this.$toggleImgUrl = this.$imgUrl
 
-	    // store toggle initial status if there is
-	    var togglestatus
-	if (togglestatus = this.$element.data('initial-toggle-status')){
-	    togglestatus == 'toggled' ? this.toggle() : this.$isToggled = false
-	}
-        else this.$isToggled = false
-        if (this.options.hover) this.addHover()
-			
-        }
+            // store toggle initial status if there is
+            var togglestatus
+            if (togglestatus = this.$element.data('initial-toggle-status')){
+                togglestatus == 'toggled' ? this.toggle() : this.$isToggled = false
+            }
+            else this.$isToggled = false
+            if (this.options.hover) this.addHover()
+    }
 
     MagicBtn.prototype = {
 
@@ -170,18 +171,41 @@ function ($) {
         }
 
         ,
+        _hoverInCallback: function () {
+            var obj = $(this).data('magicBtn')
+            var o = obj.options
+            if (!obj.$isToggled) {
+                if (o.hoverText){
+                    $(this).find('i').hide()
+                    $('<span class="value">' + $(this).attr('value') + '</span>').
+                        hide().appendTo($(this)).fadeIn()
+                }
+                $(this).toggleClass('magicBtn-active')
+            }
+        }
+        ,
+
+        _hoverOutCallback: function () {
+            var obj = $(this).data('magicBtn')
+            var o = obj.options
+            var $el = $(this)
+            if ((!obj.$isToggled) && (!$el.is(':hover')) && ($el.hasClass('magicBtn-active'))){
+                if (o.hoverText){
+                    $(this).find('.value').fadeOut('slow').remove()
+                    $(this).find('i').show(100)
+                }
+                $(this).toggleClass('magicBtn-active', 100)
+            }
+        }
+        ,
+
         addHover: function () {
             var $el = this.$element
-            var obj = this
             var config = {
-                over: function () {
-                    if (!obj.$isToggled) $(this).toggleClass('magicBtn-active')
-                },
+                over: this._hoverInCallback,
                 timeout: 10,
                 interval: 10,
-                out: function () {
-                    if ((!obj.$isToggled) && (!$el.is(':hover')) && ($el.hasClass('magicBtn-active'))) $(this).toggleClass('magicBtn-active', 100)
-                }
+                out: this._hoverOutCallback
             }
             $el.hoverIntent(config)
 
@@ -214,7 +238,8 @@ function ($) {
         direction: 'right',
         betweenSpace: 2,
         alignment: 'center',
-        hover: false
+        hover: false,
+        hoverText: false
     }
 
     $.fn.magicBtn.Constructor = MagicBtn
