@@ -37,7 +37,7 @@ function ($) {
 			this.$parentMarginLeft = this.$parentDiv.css('margin-left')
             this.options = $.extend({}, $.fn.magicBtn.defaults, options)
             this.$shown = false
-
+	   
             // Store number of buttons on parent div
             if (!this.$parentDiv.data('nbMagicBtns')) this.$parentDiv.data('nbMagicBtns', 1)
             else this.$parentDiv.data().nbMagicBtns++;
@@ -55,9 +55,13 @@ function ($) {
             if (toggleimg = this.$element.data('toggle-image')) this.$toggleImgUrl = 'url("' + toggleimg + '")'
             else this.$toggleImgUrl = this.$imgUrl
 
-            this.$isToggled = false
-
-            if (this.options.hover) this.addHover()
+	    // store toggle initial status if there is
+	    var togglestatus
+	if (togglestatus = this.$element.data('initial-toggle-status')){
+	    togglestatus == 'toggled' ? this.toggle() : this.$isToggled = false
+	}
+        else this.$isToggled = false
+        if (this.options.hover) this.addHover()
 			
         }
 
@@ -113,9 +117,6 @@ function ($) {
                     this.$parentDiv.data('bottom-space', this.$parentDiv.data('bottom-space') - this.$height)
                 }
                 break;
-
-
-
             }
             this.$left = this.$parentPosition.left + this.$parentWidth + parseInt(this.$parentMarginLeft)
         }
@@ -165,6 +166,7 @@ function ($) {
                 this.$isToggled = false
                 $el.removeClass('magicBtn-active')
             }
+
         }
 
         ,
@@ -175,7 +177,8 @@ function ($) {
                 over: function () {
                     if (!obj.$isToggled) $(this).toggleClass('magicBtn-active')
                 },
-                timeout: 1,
+                timeout: 10,
+                interval: 10,
                 out: function () {
                     if ((!obj.$isToggled) && (!$el.is(':hover')) && ($el.hasClass('magicBtn-active'))) $(this).toggleClass('magicBtn-active', 100)
                 }

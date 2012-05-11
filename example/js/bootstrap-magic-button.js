@@ -36,7 +36,8 @@ function ($) {
             this.$parentPosition = this.$parentDiv.position();
 			this.$parentMarginLeft = this.$parentDiv.css('margin-left')
             this.options = $.extend({}, $.fn.magicBtn.defaults, options)
-
+            this.$shown = false
+	   
             // Store number of buttons on parent div
             if (!this.$parentDiv.data('nbMagicBtns')) this.$parentDiv.data('nbMagicBtns', 1)
             else this.$parentDiv.data().nbMagicBtns++;
@@ -54,9 +55,13 @@ function ($) {
             if (toggleimg = this.$element.data('toggle-image')) this.$toggleImgUrl = 'url("' + toggleimg + '")'
             else this.$toggleImgUrl = this.$imgUrl
 
-            this.$isToggled = false
-
-            if (this.options.hover) this.addHover()
+	    // store toggle initial status if there is
+	    var togglestatus
+	if (togglestatus = this.$element.data('initial-toggle-status')){
+	    togglestatus == 'toggled' ? this.toggle() : this.$isToggled = false
+	}
+        else this.$isToggled = false
+        if (this.options.hover) this.addHover()
 			
         }
 
@@ -85,6 +90,8 @@ function ($) {
 
         ,
         calculatePosition: function (direction) {
+            this.$parentPosition = this.$parentDiv.position();
+            this.$parentMarginLeft = this.$parentDiv.css('margin-left')
             var space = (this.$currentBtnNb === 1) ? 0 : this.options.betweenSpace
             var left = this.$parentPosition.left + this.$parentWidth
             switch (this.options.alignment) {
@@ -110,26 +117,41 @@ function ($) {
                     this.$parentDiv.data('bottom-space', this.$parentDiv.data('bottom-space') - this.$height)
                 }
                 break;
-
-
-
             }
             this.$left = this.$parentPosition.left + this.$parentWidth + parseInt(this.$parentMarginLeft)
         }
 
         ,
         show: function () {
+            this.calculatePosition()
             var $o = this.options
             this.$element.css({
                 top: this.$top,
                 left: this.$left,
                 'background-image': (this.$isToggled) ? this.$toggleImgUrl : this.$imgUrl
             }).show()
-        }
+            this.$shown = true
+        },
 
-        ,
+        fadeIn: function () {
+            this.calculatePosition()
+            var $o = this.options
+            this.$element.fadeIn('fast').css({
+                top: this.$top,
+                left: this.$left,
+                'background-image': (this.$isToggled) ? this.$toggleImgUrl : this.$imgUrl
+            })
+            this.$shown = true
+        },
+
+        fadeOut: function () {
+            this.$element.fadeOut(10)
+            this.$shown = false
+        },
+       
         hide: function () {
             this.$element.hide()
+            this.$shown = false
         }
 
         ,
@@ -144,6 +166,7 @@ function ($) {
                 this.$isToggled = false
                 $el.removeClass('magicBtn-active')
             }
+
         }
 
         ,
@@ -154,7 +177,8 @@ function ($) {
                 over: function () {
                     if (!obj.$isToggled) $(this).toggleClass('magicBtn-active')
                 },
-                timeout: 1,
+                timeout: 10,
+                interval: 10,
                 out: function () {
                     if ((!obj.$isToggled) && (!$el.is(':hover')) && ($el.hasClass('magicBtn-active'))) $(this).toggleClass('magicBtn-active', 100)
                 }
@@ -178,6 +202,8 @@ function ($) {
             data.calculatePosition('right')
             if (option == 'toggle') data.toggle()
             if (option == 'show') data.show()
+            if (option == 'fadeIn') data.fadeIn()
+            if (option == 'fadeOut') data.fadeOut()
             if (option == 'hide') data.hide()
             else if (option) data.setState(option)
 
