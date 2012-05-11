@@ -176,7 +176,7 @@ function ($) {
             var o = obj.options
             if (!obj.$isToggled) {
                 if (o.hoverText){
-                    $(this).find('i').hide()
+                    //$(this).find('i').hide()
                     $('<span class="value">' + $(this).attr('value') + '</span>').
                         hide().appendTo($(this)).fadeIn()
                 }
