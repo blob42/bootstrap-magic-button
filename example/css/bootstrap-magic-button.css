@@ -1,11 +1,12 @@
 button[class^=magicBtn] {
+  font-weight: bold;
   display: none;
   position: absolute;
   border-style: none;
   background: none;
   background-repeat: no-repeat;
   width: 47px;
-  height: 32px;
+  height: 38px;
   opacity: 0.7;
 }
 
@@ -16,7 +17,7 @@ button[class*="magicBtn-active"] {
   background: none;
   background-repeat: no-repeat;
   width: 47px;
-  height: 32px;
+  height: 38px;
   opacity: 1;
 }
 

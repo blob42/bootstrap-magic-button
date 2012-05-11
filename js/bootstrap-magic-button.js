@@ -50,7 +50,11 @@ function ($) {
             this.$width = this.$element.outerWidth()
 
             // current button image and toggle image if there is
-            this.$imgUrl = 'url("' + this.$element.data('image') + '")'
+            var imgUrl = this.$element.data('image')
+            if (typeof(imgUrl) !== 'undefined')
+                this.$imgUrl = 'url("' + this.$element.data('image') + '")'
+            else
+                this.$imgUrl = false
             var toggleimg
             if (toggleimg = this.$element.data('toggle-image')) 
                 this.$toggleImgUrl = 'url("' + toggleimg + '")'
@@ -159,13 +163,21 @@ function ($) {
         toggle: function () {
             var $el = this.$element
             if (!this.$isToggled) {
-                $el.css('background-image', this.$toggleImgUrl)
+                if (this.$imgUrl)
+                    $el.css('background-image', this.$toggleImgUrl)
                 this.$isToggled = true
                 $el.addClass('magicBtn-active')
+                $el.css('padding-left', function(index,value){
+                    return (parseInt(value) + 4) + 'px';
+                });
             } else {
-                $el.css('background-image', this.$imgUrl)
+                if (this.$imgUrl)
+                    $el.css('background-image', this.$imgUrl)
                 this.$isToggled = false
                 $el.removeClass('magicBtn-active')
+                $el.css('padding-left', function(index,value){
+                    return (parseInt(value) - 4) + 'px';
+                });
             }
 
         }
@@ -174,14 +186,18 @@ function ($) {
         _hoverInCallback: function () {
             var obj = $(this).data('magicBtn')
             var o = obj.options
+            var hoverText = $(this).attr('value')
+            var tmpHoverText;
+            if (obj.$isToggled){ 
+                tmpHoverText = $(this).data('toggle-text')
+                if (typeof(tmpHoverText) !== 'undefined')
+                    hoverText = tmpHoverText
+            }
             if (!obj.$isToggled) {
-                if (o.hoverText){
-                    //$(this).find('i').hide()
-                    $('<span class="value">' + $(this).attr('value') + '</span>').
-                        hide().appendTo($(this)).fadeIn()
-                }
                 $(this).toggleClass('magicBtn-active')
             }
+            $('<span class="value">' + hoverText + '</span>').
+            hide().appendTo($(this)).fadeIn()
         }
         ,
 
@@ -190,12 +206,9 @@ function ($) {
             var o = obj.options
             var $el = $(this)
             if ((!obj.$isToggled) && (!$el.is(':hover')) && ($el.hasClass('magicBtn-active'))){
-                if (o.hoverText){
-                    $(this).find('.value').fadeOut('slow').remove()
-                    $(this).find('i').show(100)
-                }
                 $(this).toggleClass('magicBtn-active', 100)
             }
+            $(this).find('.value').fadeOut('slow').remove()
         }
         ,
 
@@ -229,7 +242,7 @@ function ($) {
             if (option == 'fadeIn') data.fadeIn()
             if (option == 'fadeOut') data.fadeOut()
             if (option == 'hide') data.hide()
-            else if (option) data.setState(option)
+            //else if (option) data.setState(option)
 
         })
     }
